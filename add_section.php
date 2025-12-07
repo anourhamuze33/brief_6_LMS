@@ -11,6 +11,23 @@
 <body>
     <?php
     include "connect.php";
+if(isset($_GET['edit_section'])){
+  $id = $_GET["edit_section"];
+$inputs = array("title", "content", "niveau", "duree", "position");
+if (isset($_POST["title"])) {
+    $inps = [];
+    foreach ($inputs as $input) {
+        $inps[] = $_POST[$input];
+    }    $id2 = $_GET['affich'];
+            $id2 = $_GET['affich'];
+        $select = "UPDATE sections SET title = '$inps[0]', content =' $inps[1]', niveau = '$inps[2]', duree = '$inps[3]', position = '$inps[4]' WHERE id = $id";
+        mysqli_query($conn, $select);
+    header("location:affichage_section.php?affich=$id2");
+}
+
+}
+
+
     if (isset($_GET["add"])) {
         $id = $_GET["add"];
         $inputs = array("title", "content", "niveau", "duree", "position");

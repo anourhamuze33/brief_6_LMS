@@ -1453,3 +1453,169 @@ h2{
     font-size: 0.85em;
     font-weight: 600;
 }
+
+
+
+.btn-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @keyframes glow-pulse-edit {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.8),
+                            0 0 40px rgba(102, 126, 234, 0.4),
+                            0 0 60px rgba(102, 126, 234, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(102, 126, 234, 1),
+                            0 0 60px rgba(102, 126, 234, 0.6),
+                            0 0 90px rgba(102, 126, 234, 0.3);
+            }
+        }
+
+        @keyframes glow-pulse-delete {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(245, 87, 108, 0.8),
+                            0 0 40px rgba(245, 87, 108, 0.4),
+                            0 0 60px rgba(245, 87, 108, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(245, 87, 108, 1),
+                            0 0 60px rgba(245, 87, 108, 0.6),
+                            0 0 90px rgba(245, 87, 108, 0.3);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1.05) rotate(0deg); }
+            50% { transform: translateY(-10px) scale(1.1) rotate(2deg); }
+        }
+
+        @keyframes shake-icon {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-15deg) scale(1.2); }
+            75% { transform: rotate(15deg) scale(1.2); }
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 200%; }
+        }
+
+        .btn-edit-sec {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-edit-sec::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: none;
+        }
+
+        .btn-edit-sec:hover {
+            animation: float 0.8s ease-in-out infinite, glow-pulse-edit 1.5s ease-in-out infinite;
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            border-radius: 25px;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-edit-sec:hover::before {
+            animation: shimmer 1.5s infinite;
+        }
+
+        .btn-edit-sec:hover svg {
+            animation: shake-icon 0.6s ease-in-out infinite;
+        }
+
+        .btn-edit-sec:active {
+            transform: scale(0.9);
+        }
+
+        .btn-delete-sec {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-delete-sec::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: none;
+        }
+
+        .btn-delete-sec:hover {
+            animation: float 0.8s ease-in-out infinite, glow-pulse-delete 1.5s ease-in-out infinite;
+            background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+            border-radius: 25px;
+            letter-spacing: 1.5px;
+        }
+
+        .btn-delete-sec:hover::before {
+            animation: shimmer 1.5s infinite;
+        }
+
+        .btn-delete-sec:hover svg {
+            animation: shake-icon 0.6s ease-in-out infinite;
+        }
+
+        .btn-delete-sec:active {
+            transform: scale(0.9);
+        }
+
+
+.section-card {
+    overflow: visible !important;
+}
+
+.section-footer {
+    position: relative;
+    z-index: 10;
+}
+
+.btn-container {
+    position: relative;
+    z-index: 10;
+    margin-top: 20px;
+}
