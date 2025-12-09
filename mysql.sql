@@ -143,3 +143,5 @@ INSERT INTO sections (title, content, position, duree, niveau, course_id) VALUES
 ('Finalisation du projet', 'Amélioration et nettoyage.', 48, 30, 'Débutant', 6),
 ('Déploiement', 'Mettre votre site sur internet.', 49, 35, 'Débutant', 6),
 ('Conclusion', 'Résumé du cours et étapes suivantes.', 50, 10, 'Débutant', 6);
+alter TABLE courses 
+add img text not null;

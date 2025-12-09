@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil - LMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            color: white;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.3), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(240, 147, 251, 0.3), transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(245, 87, 108, 0.2), transparent 50%);
+            animation: gradientMove 15s ease infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes gradientMove {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(50px, -50px); }
+            66% { transform: translate(-50px, 50px); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 80px 20px 100px;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.02); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            text-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .hero-description {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 60px 20px;
+        }
+
+        .features-section h2 {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(45deg, 
+                #667eea, #764ba2, #f093fb, #f5576c,
+                #4facfe, #00f2fe, #43e97b, #667eea);
+            background-size: 400% 400%;
+            border-radius: 22px;
+            z-index: -1;
+            animation: borderFlow 8s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        @keyframes borderFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 15px 50px rgba(102, 126, 234, 0.4),
+                0 0 60px rgba(102, 126, 234, 0.2),
+                inset 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .feature-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 1.05em;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-large {
+            padding: 20px 50px;
+            font-size: 1.3em;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 10px 40px rgba(240, 147, 251, 0.5);
+        }
+
+        .btn-large:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(240, 147, 251, 0.7);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            margin-top: 60px;
+        }
+
+        .cta-section h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #111311ff 0%, #012720ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Floating particles */
+        .particle {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: float-particle 4s infinite;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        @keyframes float-particle {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-100px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) scale(0);
+            }
+        }
+
+        .particle:nth-child(1) { left: 10%; top: 80%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 30%; top: 70%; animation-delay: 0.5s; }
+        .particle:nth-child(3) { left: 50%; top: 90%; animation-delay: 1s; }
+        .particle:nth-child(4) { left: 70%; top: 75%; animation-delay: 1.5s; }
+        .particle:nth-child(5) { left: 90%; top: 85%; animation-delay: 2s; }
+        .particle:nth-child(6) { left: 15%; top: 60%; animation-delay: 2.5s; }
+        .particle:nth-child(7) { left: 85%; top: 65%; animation-delay: 3s; }
+        .png{
+            width: 6rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3em;
+            }
+
+            .hero-description {
+                font-size: 1em;
+            }
+            
+            .features-section h2,
+            .cta-section h2 {
+                font-size: 2em;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+
+    <div class="container">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>✨ Bienvenue sur notre plateforme LMS ✨</h1>
+                <p class="hero-subtitle">Gérez vos cours et sections facilement</p>
+                <p class="hero-description">
+                    Cette plateforme vous permet de créer et organiser vos cours en ligne 
+                    avec leurs différentes sections et chapitres de manière intuitive et efficace.
+                </p>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2><img src="goal.png" class="png"> Fonctionnalités principales <img src="goal2.png" class="png"></h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><img class="png" src="books-stack-of-three.png"></div>
+                    <h3>Gestion des cours</h3>
+                    <p>Créez, modifiez et supprimez vos cours avec tous les détails nécessaires.</p>
+                    <a href="index.php" class="btn btn-primary">Voir les cours</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><img class="png" src="google-docs.png"></div>
+                    <h3>Organisation en sections</h3>
+                    <p>Structurez vos cours en sections et chapitres pour une meilleure organisation.</p>
+                    <a href="affich_all.php" class="btn btn-primary">Voir les sections</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon"><img class="png" src="target.png"></div>
+                    <h3>Niveaux adaptés</h3>
+                    <p>Classez vos cours par niveau : Débutant, Intermédiaire ou Avancé.</p>
+                    <a href="index.php" class="btn btn-primary">Explorer</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Interface moderne</h3>
+                    <p>Une interface claire et intuitive pour gérer votre contenu pédagogique.</p>
+                    <a href="courses_create.php" class="btn btn-primary">Démarrer</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2><img class="png" src="high.png"> Commencez maintenant</h2>
+            <p>Créez votre premier cours et organisez-le en sections</p>
+            <a href="index.php" class="btn btn-large">Créer un cours</a>
+        </div>
+    </div>
+</body>
+</html>
+

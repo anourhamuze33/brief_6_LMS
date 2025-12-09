@@ -6,8 +6,7 @@
   const openBtn = document.querySelector(".open-modal-btn");
   const closeBtn = document.querySelector(".close");
   openBtn.onclick = () => modal.style.display = "block";
-  ;
-  closeBtn.onclick = () => modal.style.display = "none";
+  ;closeBtn.onclick = () => modal.style.display = "none";
 
   
   window.onclick = (event) => {
@@ -36,24 +35,3 @@ cards.forEach(card => {
 
 
 
-
-
-/*
-const modal2 = document.getElementById("modal1");
-const overlay = document.getElementById("modalOverlay");
-const openBtn = document.querySelector(".open-modal-btn1");
-const closeBtn = document.getElementById("closeModal");
-
-openBtn.addEventListener("click", () => {
-  modal2.style.display = "flex";
-  overlay.style.display = "block";
-});
-
-closeBtn.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
-
-function closeModal() {
-  modal2.style.display = "none";
-  overlay.style.display = "none";
-}
-*/

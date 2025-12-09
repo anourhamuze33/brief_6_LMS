@@ -9,33 +9,7 @@
 </head>
 
 <body>
-  <header>
-    <div class="header-content">
-      <div class="brand">
-        <div class="logo">
-          <div class="logo-inner">
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="sparkle"></div>
-            <div class="book"><img src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="Logo">
-            </div>
-          </div>
-        </div>
-        <h1>
-          LMS
-          <span class="separator">–</span>
-          <span class="courses">Courses</span>
-        </h1>
-      </div>
-
-      <nav>
-        <a href="#accueil" class="nav-link active">Accueil</a>
-        <a href="#courses" class="nav-link">Courses</a>
-        <a href="#sessions" class="nav-link">Sessions</a>
-        <a href="#profile" class="nav-link">Profile</a>
-      </nav>
-    </div>
-  </header>
+<?php include "header.php" ?>
   <div class="cont">
     <button class="open-modal-btn btn-add">Ajouter un Cours</button>
     <div class="container" id="coursesScreen">
@@ -50,9 +24,14 @@
 
         <h2>Ajouter un Cours</h2>
 
-        <form class="form" action="validation_course_form.php" method="POST">
+        <form class="form" action="validation_course_form.php" method="POST" enctype="multipart/form-data">
           <label for="title">Titre du cours</label>
           <input type="text" id="title" name="title" required />
+
+<label for="img">upload le fichier de l'image</label>
+<div class="file-input-wrapper">
+  <input id="start" name="start" type="file" />
+</div>
 
           <label for="description">Description</label>
           <textarea id="description" name="description" rows="4" placeholder="Une brève description du cours..." required></textarea>

@@ -1,6 +1,6 @@
 <?php
 include "connect.php";
-$select = "SELECT id, title, description, level FROM courses";
+$select = "SELECT id, title, description, level, img FROM courses";
 $resultat = $conn->query($select);
 if(!$resultat){
     die("invalid: " . $conn->error);
@@ -8,8 +8,11 @@ if(!$resultat){
 echo '<div class="courses-grid">';
 while($cour = $resultat-> fetch_assoc()):
     echo '
+
   <div class="course-card" data-id ="'.$cour["id"].'">
       <div class="course-title">'.$cour["title"] .'</div>
+      <div class="course-title"><img src="'.$cour["img"].'" width="300"></div>
+    
       <div class="course-desc">'.$cour["description"] .'</div>
       <div class="course-level">'.$cour["level"] .'</div>
     <div class="buttons"> 
