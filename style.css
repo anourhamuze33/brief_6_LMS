@@ -1954,3 +1954,19 @@ input[type="file"]::file-selector-button:hover {
 input[type="file"]::file-selector-button:active {
   transform: translateY(0);
 }
+
+
+
+.textt{
+font-size: 1.5rem;
+font-weight: bold;
+justify-self: center;
+}
+.ccc{
+    align-items: center;
+    justify-content: center;
+}
+.containe{
+    width: 40%;
+    justify-self: center;
+}

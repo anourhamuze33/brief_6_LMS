@@ -18,7 +18,8 @@
       </div>
 
       <nav>
-        <a href="acceuil.php" class="nav-link active">Accueil</a>
+        <a href="views/acceuil.php" class="nav-link active">Accueil</a>
+        <a href="index.php?action=create" class="nav-link">Ajouter</a>
         <a href="index.php" class="nav-link">Courses</a>
         <a href="affich_all.php" class="nav-link">Sessions</a>
         <a href="profile.php" class="nav-link">Profile</a>
