@@ -3,7 +3,7 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Ajouter un Cours</h2>
-        <form class="form" action="index.php?action=store" method="POST" enctype="multipart/form-data">
+        <form class="form" action="../../index.php?action=store" method="POST" enctype="multipart/form-data">
             <label for="title">Titre du cours</label>
             <input type="text" id="title" name="title" required />
 
@@ -27,4 +27,4 @@
     </div>
 </div>
 <?php $form = ob_get_clean(); ?>
-<?php include_once "views/cadre.php"; ?>
+<?php include_once "views/courVews/cadre.php"; ?>

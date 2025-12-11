@@ -17,6 +17,6 @@ require_once "views/included_parts.php/header.php";
             <option value="Avancé">Avancé</option>
         </select>
         <button class="btn" type="submit">editer le cours</button>
-        <a href="index.php" class="btn btn-delete btn_back">Go back</a>
+        <a href="../../index.php" class="btn btn-delete btn_back">Go back</a>
     </form>
 </div>

@@ -3,12 +3,12 @@ require_once "model/courModel.php";
 function affichageCouresAction()
 {
     $cours = listCours();
-    require_once "views/courAffichage.php";
+    require_once "views/courVews/courAffichage.php";
 }
 
 function createAction()
 {
-    require_once "views/courCreate.php";
+    require_once "views/courVews/courCreate.php";
 }
 
 function storeAction()
@@ -22,7 +22,7 @@ function deleteAction ()
 {
     $id = $_GET['delete'];
     $select_deleted = select_delete($id);
-    require_once "views/delete.php";
+    require_once "views/courVews/delete.php";
 }
 
 function deletedAction()
@@ -35,12 +35,9 @@ function deletedAction()
 
 function updateAction()
 {
-
-
-
     $id = $_GET['edit'];
     $select_updated = select_update($id);
-    require_once "views/update.php";
+    require_once "views/courVews/update.php";
 ?>
 <!-- <script>
     const inputs = document.querySelectorAll(".updat");

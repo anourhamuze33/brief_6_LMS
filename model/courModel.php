@@ -39,6 +39,7 @@ if(isset($id)){
     //execute([$id])
 }
 }
+
 function select_delete($id)
 {
 include "connect.php";
@@ -46,7 +47,6 @@ $select_delete = "SELECT id, title, description, level, img FROM courses where i
  $selected = $conn->query($select_delete);
  return $selected-> fetch_assoc();
 }
-
 
 function select_update($id)
 {
