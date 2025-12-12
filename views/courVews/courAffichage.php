@@ -16,11 +16,11 @@ while ($cour = $cours->fetch_assoc()):
       <div class="course-desc">' . $cour["description"] . '</div>
       <div class="course-level">' . $cour["level"] . '</div>
     <div class="buttons"> 
-      <a href ="add_section.php?add=' . $cour["id"] . '" class="btn btn-add">Add</a>
+      <a href ="index.php?section_action=add_section&add=' . $cour["id"] . '" class="btn btn-add">Add</a>
       <a href="index.php?action=update&edit=' . $cour["id"] . '" class="btn btn-edit">Edit</a>
       <a href="index.php?action=delete&delete=' . $cour["id"] . '" class="btn btn-delete">Delete</a>
     </div>
-  <form class="formcache" style="display:none" action="affichage_section.php" method="POST">
+  <form class="formcache" style="display:none" action="index.php?section_action=affichage" method="POST">
       <input class="inpuuut" type="hidden" name="course_id" value="">
   </form>
   </div>

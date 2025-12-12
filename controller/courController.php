@@ -50,7 +50,7 @@ function updateAction()
     const inputs = document.querySelectorAll(".updat");
     inputs[0].value = selected.title;
     inputs[1].value = selected.description;
-    inputs[2].value = data.level;
+    inputs[2].value = selected.level;
 </script>
 
 <?php

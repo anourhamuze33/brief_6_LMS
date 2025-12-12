@@ -1,5 +1,6 @@
 <?php
 require_once "controller/courController.php";
+require_once "controller/sectionsController.php";
 if(isset($_GET['action'])){
     $page = $_GET['action'];
     switch($page){
@@ -20,9 +21,30 @@ if(isset($_GET['action'])){
         break;
     }
 }
+
+elseif(isset($_GET['section_action'])){
+   $section_page = $_GET['section_action'];
+    switch($section_page){
+       case "affichage":
+         sectionAffichAction();
+         break;
+         case "add_section":
+            addSectionAction();
+         break;
+         case "store_section":
+            storeSectionAction();
+         break;
+         case "delete_Section":
+            deleteSectionAction();
+         break;
+         case "deleted_Section":
+            deletedSectionAction();
+         break;
+         case "update_Section":
+            uppdateSectionAction();
+         break;
+         }
+      }
 else{
-    affichageCouresAction();
-}
-
-
-
+          affichageCouresAction();
+      }
