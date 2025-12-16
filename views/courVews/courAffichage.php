@@ -7,14 +7,13 @@ while ($cour = $cours->fetch_assoc()):
   <div class="course-card" data-id ="' . $cour["id"] . '">
   <div class="course-title">' . $cour["title"] . '</div>
 ';
-  if (!empty($cour["img"])) {
-    echo '
-      <div class="course-title"><img src="views/assets/' . $cour["img"] . '" width="300"></div>
-    ';
-  }
+   if (!empty($cour["img"])) { ?>
+      <div class="course-title"><img src="/views/assets/<?= $cour["img"] ?>" width="300"></div>
+  <?php } 
   echo '
       <div class="course-desc">' . $cour["description"] . '</div>
       <div class="course-level">' . $cour["level"] . '</div>
+      <a href="index.php?action=delete&delete=' . $cour["id"] . '" class="btn btn-delete">Enregistrer</a>
     <div class="buttons"> 
       <a href ="index.php?section_action=add_section&add=' . $cour["id"] . '" class="btn btn-add">Add</a>
       <a href="index.php?action=update&edit=' . $cour["id"] . '" class="btn btn-edit">Edit</a>

@@ -46,7 +46,7 @@ function updateAction()
     inputs[2].value =  htmlspecialchars($select_updated['level']) ?>;
 </script>  -->
 <script>
-    const selected = <?= json_encode($select_updated, JSON_UNESCAPED_UNICODE) ?>;
+    const selected = <?= json_encode($select_updated) ?>;
     const inputs = document.querySelectorAll(".updat");
     inputs[0].value = selected.title;
     inputs[1].value = selected.description;

@@ -7,10 +7,10 @@
             <label for="title">Titre du cours</label>
             <input type="text" id="title" name="title" required />
 
-            <!-- <label for="img">upload le fichier de l'image</label>
+            <label for="start">upload le fichier de l'image</label>
             <div class="file-input-wrapper">
                 <input id="start" name="start" type="file" />
-            </div> -->
+            </div>
             <label for="description">Description</label>
             <textarea id="description" name="description" rows="4" placeholder="Une brève description du cours..." required></textarea>
 

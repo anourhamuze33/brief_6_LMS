@@ -16,12 +16,12 @@ if(isset($_POST["title"])){
     }
        $file=$_FILES['start'];
        $fileName = time() . "_" . basename($file["name"]);
-       $path = "C:\\laragon\\www\\brief_6_LMS\\";
+       $path = "C:\\laragon\\www\\brief_6_LMS\\views\\assets\\";
        $filePath = $path . $fileName;
        move_uploaded_file($file["tmp_name"], $filePath);
-    $sql = "INSERT INTO courses (title, description, level) VALUES(?,?,?)";
+    $sql = "INSERT INTO courses (title, description, level, img) VALUES(?,?,?,?)";
     $stm = $conn->prepare($sql);
-    $result = $stm->execute([$inps[0], $inps[1], $inps[2]]);
+    $result = $stm->execute([$inps[0], $inps[1], $inps[2], $fileName]);
     $stm->close();
 }
 mysqli_close($conn);
@@ -73,3 +73,5 @@ if (isset($_POST["title"])) {
     return $select;
 }
 }
+
+

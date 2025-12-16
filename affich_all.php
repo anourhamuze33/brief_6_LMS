@@ -11,7 +11,7 @@
 
 <?php
 include "connect.php";
-include "header.php";
+include "views/included_parts.php/header.php";
 if(isset($_GET['value'])){
     $idd=$_GET['value'];
     if($idd==0){
