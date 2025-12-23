@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription Étudiant</title>
-        <style>
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -49,9 +49,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(180deg);
             }
@@ -78,6 +81,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -103,9 +107,12 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
@@ -150,7 +157,7 @@
             font-size: 14px;
         }
 
-        input {
+       input  {
             width: 100%;
             padding: 15px 20px;
             border: 2px solid #e0e0e0;
@@ -259,41 +266,96 @@
                 font-size: 24px;
             }
         }
+        /* Insane Error Styling */
+/* Small Error Styling */
+.errors {
+    background: linear-gradient(135deg, #ebc9c9ff, #e1aaaaff);
+    border: 1px solid #ff0000;
+    border-radius: 6px;
+    padding: 4px 8px;
+    margin: 3px 0;
+    box-shadow: 0 2px 6px rgba(255, 0, 0, 0.2);
+    animation: shake 0.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.errors p {
+    color: #fff;
+    font-weight: 600;
+    font-size: 10px;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.errors::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+    20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
     </style>
 </head>
+
 <body>
-        <div class="container">
+    <div class="container">
         <div class="logo">
             <div class="logo-circle">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                 </svg>
             </div>
             <h1>Inscription Étudiant</h1>
             <p class="subtitle">Créez votre compte en quelques secondes</p>
         </div>
 
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" novalidate>
             <div class="form-row">
                 <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="user_nom" placeholder="Votre nom" required>
+                    <input type="text" id="nom" name="user_nom" value="<?= htmlspecialchars($user['user_nom'] ?? '')?>" placeholder="Votre nom" required>
                 </div>
 
                 <div class="form-group">
                     <label for="prenom">Prénom</label>
-                    <input type="text" id="prenom" name="user_prenom" placeholder="Votre prénom" required>
+                    <input type="text" id="prenom" name="user_prenom" value="<?= htmlspecialchars($user['user_prenom'] ?? '')?>" placeholder="Votre prénom" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="email">Email Gmail</label>
-                <input type="email" id="email" name="user_email" placeholder="votre.email@gmail.com" required>
+                <input type="email" id="email" name="user_email" value="<?= htmlspecialchars($user['user_email'] ?? '')?>" placeholder="votre-email@gmail.com" required>
+                <?php if (!empty($errors['email'])): ?>
+                    <div class="errors">
+                        <p style="color:red"><?= htmlspecialchars($errors['email']) ?></p>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty($errors['validemail'])): ?>
+                    <div class="errors">
+                        <p style="color:red"><?= htmlspecialchars($errors['validemail']) ?></p>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="form-group">
                 <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="user__name" placeholder="Choisissez un nom d'utilisateur" required>
+                <input type="text" id="username" name="user__name" value="<?= htmlspecialchars($errors['user__name'] ?? '')?>" placeholder="Choisissez un nom d'utilisateur" required>
             </div>
 
             <div class="form-group">
@@ -301,12 +363,26 @@
                 <input type="password" id="password" name="user_password" placeholder="Créez un mot de passe" required>
                 <p class="password-strength">Utilisez au moins 8 caractères avec lettres et chiffres</p>
             </div>
+            <?php if (!empty($errors['passwordlengh'])): ?>
+                <div class="errors">
+                    <p style="color:red"><?= htmlspecialchars($errors['passwordlengh']) ?></p>
+                </div>
+            <?php endif; ?>
+            <?php if (!empty($errors['passwordupercase'])): ?>
+                <div class="errors">
+                    <p style="color:red"><?= htmlspecialchars($errors['passwordupercase']) ?></p>
+                </div>
+            <?php endif; ?>
 
             <div class="form-group">
                 <label for="confirm-password">Confirmer le mot de passe</label>
                 <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirmez votre mot de passe" required>
             </div>
-
+            <?php if (!empty($errors['confirm'])): ?>
+                <div class="errors">
+                    <p style="color:red"><?= htmlspecialchars($errors['confirm']) ?></p>
+                </div>
+            <?php endif; ?>
             <button type="submit" name="user_ajout" class="btn">S'inscrire</button>
         </form>
 
@@ -315,9 +391,10 @@
         </div>
 
         <div class="login-link">
-            Vous avez déjà un compte ? <a href="../../login.php">Connectez-vous</a>
+            Vous avez déjà un compte ? <a href="../../profile.php">Connectez-vous</a>
         </div>
 
     </div>
 </body>
+
 </html>

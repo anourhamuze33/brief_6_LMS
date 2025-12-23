@@ -271,21 +271,15 @@
             <h1>Connexion Étudiant</h1>
             <p class="subtitle">Accédez à votre espace personnel</p>
         </div>
-
         <form action="#" method="post">
             <div class="form-group">
-                <label for="email">Email Gmail</label>
-                <input type="email" id="email" name="email" placeholder="votre.email@gmail.com" required>
-            </div>
-
-            <div class="form-group">
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
+                <label for="email">Email or Nom d'utilisateur</label>
+                <input type="text" id="email" value="<?= htmlspecialchars($_POST['email_username'] ?? '') ?>" name="email_username" placeholder="votre.email@gmail.com" required>
             </div>
 
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+                <input type="password" id="password" name="password_login" placeholder="Entrez votre mot de passe" required>
             </div>
 
             <div class="forgot-password">
@@ -294,6 +288,7 @@
 
             <button type="submit" class="btn">Se connecter</button>
         </form>
+        
 
         <div class="divider">
             <span>OU</span>

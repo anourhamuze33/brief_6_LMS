@@ -1,6 +1,8 @@
 <?php
+session_start();
 require_once "controller/courController.php";
 require_once "controller/sectionsController.php";
+require_once "controller/userController.php";
 if(isset($_GET['action'])){
     $page = $_GET['action'];
     switch($page){

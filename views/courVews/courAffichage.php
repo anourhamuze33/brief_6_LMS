@@ -13,8 +13,13 @@ while ($cour = $cours->fetch_assoc()):
   echo '
       <div class="course-desc">' . $cour["description"] . '</div>
       <div class="course-level">' . $cour["level"] . '</div>
-      <a href="index.php?action=delete&delete=' . $cour["id"] . '" class="btn btn-delete">Enregistrer</a>
-    <div class="buttons"> 
+';
+    if (isset($_SESSION['user_id'])) {
+$enr = '<a href="enrollement.php?cour_id='.$cour["id"].'" class="btn btn-delete">Enregistrer</a>';
+    }
+echo $enr ?? '';
+ echo '
+      <div class="buttons"> 
       <a href ="index.php?section_action=add_section&add=' . $cour["id"] . '" class="btn btn-add">Add</a>
       <a href="index.php?action=update&edit=' . $cour["id"] . '" class="btn btn-edit">Edit</a>
       <a href="index.php?action=delete&delete=' . $cour["id"] . '" class="btn btn-delete">Delete</a>

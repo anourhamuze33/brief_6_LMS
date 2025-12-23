@@ -156,9 +156,9 @@ PASSWORD varchar(200) not null
 
 
 CREATE TABLE enrollement (
-cour_id int UNIQUE not null,
+cour_id int not null,
  FOREIGN KEY (cour_id)  REFERENCES courses(id) on DELETE CASCADE,
-user_id int UNIQUE not null,
+user_id int not null,
  FOREIGN KEY (user_id)  REFERENCES users (id) ON DELETE CASCADE
 );
 ALTER TABLE users
@@ -166,3 +166,9 @@ add email varchar(100) not null unique;
 
 ALTER TABLE users
 add CONSTRAINT UNIQUE (user_name);
+ALTER TABLE enrollement
+add COLUMN id int AUTO_INCREMENT PRIMARY key;
+
+SHOW CREATE TABLE enrollement
+ALTER TABLE enrollement
+add CONSTRAINT unique_cour UNIQUE (cour_id)

@@ -50,6 +50,7 @@ $course = "SELECT id, title, description, level FROM courses";
                  while($resul= $result->fetch_assoc()):
                     echo 
 "
+//selected element
                     <option class='op' value ='{$resul["id"]}'>{$resul["title"]}</option>
 ";
 endwhile;

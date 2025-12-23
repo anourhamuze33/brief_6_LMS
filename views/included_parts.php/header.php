@@ -22,7 +22,11 @@
         <a href="index.php?action=create" class="nav-link">Ajouter</a>
         <a href="index.php" class="nav-link">Courses</a>
         <a href="affich_all.php" class="nav-link">Sessions</a>
-        <a href="profile.php" class="nav-link">Profile</a>
+        <a href="profile.php" class="nav-link">login</a>
+        <a href="loged.php?exist_cour=1" class="nav-link">Mycours</a>
+        <a href="stati.php" class="nav-link">statistic</a>
+
+
       </nav>
     </div>
   </header>
